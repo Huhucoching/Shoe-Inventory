@@ -1,0 +1,333 @@
+:root {
+    --bg-soft: #ecf6f7;
+    --bg-accent: #f8efe0;
+    --surface: #ffffff;
+    --surface-dark: #0f172a;
+    --primary: #0f766e;
+    --primary-strong: #115e59;
+    --accent: #f59e0b;
+    --text-main: #111827;
+    --text-muted: #6b7280;
+    --border-soft: #d4e3e7;
+    --danger: #dc2626;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: radial-gradient(circle at 10% 10%, #d7f0ed 0%, transparent 32%),
+        radial-gradient(circle at 90% 20%, #fbe7be 0%, transparent 28%),
+        linear-gradient(140deg, var(--bg-soft), #f3f4f6);
+}
+
+.app-bg-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: linear-gradient(transparent 95%, rgba(15, 118, 110, 0.03) 95%),
+        linear-gradient(90deg, transparent 95%, rgba(245, 158, 11, 0.03) 95%);
+    background-size: 24px 24px;
+    z-index: -1;
+}
+
+.app-shell {
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: clip;
+}
+
+.content-wrapper {
+    flex: 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 280px;
+    background: linear-gradient(180deg, #0b2530, #122838);
+}
+
+.brand-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    color: #f8fafc;
+}
+
+.brand-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #f97316);
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
+}
+
+.brand-tag-logo {
+    width: clamp(150px, 72%, 220px);
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0;
+    filter: drop-shadow(0 3px 12px rgba(2, 6, 23, 0.45));
+}
+
+.app-brand-logo {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    filter: drop-shadow(0 4px 10px rgba(79, 79, 81, 0.35));
+}
+
+.app-brand-logo-sidebar {
+    width: clamp(150px, 72%, 220px);
+    filter: drop-shadow(0 3px 12px rgba(2, 6, 23, 0.45));
+}
+
+@keyframes logoGlowPulse {
+    0%,
+    100% {
+        opacity: 0.95;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.01);
+    }
+}
+
+.sidebar-nav .nav-link {
+    color: rgba(248, 250, 252, 0.82);
+    border-radius: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    transition: all 0.2s ease;
+   
+}
+
+.sidebar-nav .nav-link:hover,
+.sidebar-nav .nav-link.active {
+    color: #fff;
+    background: rgba(15, 118, 110, 0.5);
+}
+
+.topbar {
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.topbar-main {
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.topbar-meta {
+    flex: 0 0 auto;
+}
+
+.page-heading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+main.container-fluid {
+    min-width: 0;
+}
+
+.reports-main {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.reports-filters-sticky {
+    position: static;
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    padding-top: 0;
+}
+
+.reports-scroll-area {
+    overflow-y: visible;
+    overflow-x: visible;
+    scroll-behavior: smooth;
+    padding-right: 0;
+}
+
+@media (min-width: 1000px) {
+    .reports-filters-sticky {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        background: linear-gradient(140deg, rgba(236, 246, 247, 0.95), rgba(248, 239, 224, 0.95));
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);
+        padding-top: 0.25rem;
+    }
+
+    .reports-scroll-area {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 0.125rem;
+        overscroll-behavior: contain;
+    }
+}
+
+.btn-topbar {
+    background: #fff;
+    border: 1px solid var(--border-soft);
+}
+
+.card-surface {
+    border: 1px solid var(--border-soft);
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.chart-canvas-wrap {
+    position: relative;
+    height: 260px;
+}
+
+.stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 1rem;
+}
+
+.stat-label {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.stat-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.7rem;
+    margin-top: 0.25rem;
+}
+
+.table-panel {
+    background: #fff;
+    border: 1px solid var(--border-soft);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.table thead th {
+    background: #f1f5f9;
+    color: #334155;
+    border-bottom-width: 1px;
+    font-size: 0.84rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-role-admin {
+    background: rgba(15, 118, 110, 0.18);
+    color: #0f766e;
+}
+
+.badge-role-staff {
+    background: rgba(59, 130, 246, 0.15);
+    color: #1d4ed8;
+}
+
+.badge-stock-low {
+    background: rgba(220, 38, 38, 0.15);
+    color: #991b1b;
+}
+
+.badge-stock-ok {
+    background: rgba(34, 197, 94, 0.15);
+    color: #166534;
+}
+
+.product-out-of-stock {
+    background-color: #e9ecef !important;
+    color: #6c757d !important;
+    opacity: 0.75;
+}
+
+.product-out-of-stock td {
+    color: #6c757d !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #2dd4bf;
+    box-shadow: 0 0 0 0.2rem rgba(20, 184, 166, 0.2);
+}
+
+.pagination .page-link {
+    color: #0f766e;
+}
+
+.pagination .active .page-link {
+    background: #0f766e;
+    border-color: #0f766e;
+}
+
+@media (max-width: 991px) {
+    .sidebar {
+        width: 86%;
+        max-width: 320px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+    }
+}
+
+@media print {
+    body {
+        background: #fff !important;
+    }
+
+    .sidebar,
+    .topbar,
+    .no-print {
+        display: none !important;
+    }
+
+    .content-wrapper {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    .reports-main,
+    .reports-scroll-area {
+        overflow: visible !important;
+        height: auto !important;
+    }
+
+    .card-surface,
+    .table-panel {
+        box-shadow: none !important;
+        border-color: #d1d5db !important;
+        break-inside: avoid;
+    }
+}
